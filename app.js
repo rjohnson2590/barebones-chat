@@ -18,6 +18,13 @@ wss.on('connection', function(ws) {
     ws.on('message', function(message) {
         wss.clients.forEach(function (client) {
             client.send(message);
+             $("#typeArea").keydown(function(){
+    $("#writeTo").append(dPar)
+    dPar.text(name+": is typing...")
+    window.setTimeout(function(){
+        $(dPar).detach();
+    }, 2000)
+    })
         });
     })
 });
